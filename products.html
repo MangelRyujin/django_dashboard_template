@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="./assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Dashboard Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    <!-- <link href="sidebars.css" rel="stylesheet"> -->
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" >
+      <button class="btn btn-primary py-2 dropdown-toggle d-flex align-items-center rounded-circle "
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)"
+              style="width: 40xp; height: 40px;">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="bootstrap" viewBox="0 0 118 94">
+    <title>Bootstrap</title>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+  </symbol>
+  <symbol id="home" viewBox="0 0 16 16">
+    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+  </symbol>
+  <symbol id="speedometer2" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+    <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+  </symbol>
+  <symbol id="table" viewBox="0 0 16 16">
+    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+  </symbol>
+  <symbol id="people-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+  </symbol>
+  <symbol id="grid" viewBox="0 0 16 16">
+    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+  </symbol>
+</svg>
+
+<!-- Modal Product Delete -->
+<div class="modal fade" id="modalProductDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">Do you want to delete the product?</h5>
+          <p class="mb-0">If you accept, the selected product will be removed completely.</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button id="liveToastBtn" data-bs-dismiss="modal" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Yes, delete</strong></button>
+          <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal"><strong>No thanks</strong></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Product Delete -->
+<div class="toast-container position-fixed bottom-0  p-3">
+  <div id="liveToast" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        The product has been removed.
+      </div>
+      <button type="button" class="btn-close  me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<!-- End Toast Product Delete -->
+
+
+<!-- Modal Login -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          <hr class="my-4">
+          <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x me-1" viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+            </svg>
+            Sign up with Twitter
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook  me-1" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+            </svg>
+            Sign up with Facebook
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-1" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+            Sign up with GitHub
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Login -->
+
+<!-- Modal Category Create -->
+<div class="modal fade" id="modalCategoryCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-12">
+            <label for="inputCategoryNameCreate" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputCategoryNameCreate" placeholder="Name">
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="inputCategoryFilesCreate">Image</label>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="inputCategoryFilesCreate">
+              <label class="input-group-text" for="inputCategoryFilesCreate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+              </svg>
+            </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <label class="form-check-label" for="inputCategoryRadioTrueCreate">
+              Active
+            </label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputCategoryRadioTrueCreate" value="true" checked>
+              <label class="form-check-label" for="inputCategoryRadioTrueCreate">
+                Ready to sell
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputCategoryRadioFalseCreate" value="false">
+              <label class="form-check-label" for="inputCategoryRadioFalseCreate">
+                Not ready to sell
+              </label>
+            </div>
+          </div>
+          <span class="col-12 text-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+            <button type="button" class="btn btn-primary px-5" data-bs-dismiss="modal">Save</button>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Category Create -->
+
+<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+
+    <ul class="navbar-nav flex-row d-md-none">
+      
+      <li class="nav-item text-nowrap">
+        <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+      </li>
+    </ul>
+</header>
+
+<div class="container-fluid">
+  <div class="row ">
+    <div class="sidebar side-fix h-100  col-md-3 col-lg-2 p-0 bg-dark">
+      <div class="offcanvas-md offcanvas-end bg-dark" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-white" id="sidebarMenuLabel">Company name</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body  d-md-flex flex-column p-0 pt-1 px-1  ">
+          <ul class="nav nav-pills flex-column w-100 mb-auto ">
+            
+            <li>
+              <a href="dashboard.html" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="orders.html" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                Orders
+              </a>
+            </li>
+            <li>
+              <a href="categories.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                  <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2"/>
+                </svg>
+                Categories
+              </a>
+            </li>
+            <li>
+              <a href="products.html" class="nav-link text-white active">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                Products
+              </a>
+            </li>
+            <li>
+              <a href="suppliers.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                </svg>
+                Suppliers
+              </a>
+            </li>
+            <li>
+              <a href="users.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+                Users
+              </a>
+            </li>
+            <li>
+              <a href="coupons.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift-fill" viewBox="0 0 16 16">
+                  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
+                </svg>
+                Coupons
+              </a>
+            </li>
+            <hr>
+            <!-- Button trigger modal -->
+            <li>
+              <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                Login
+              </a>
+            </li>
+            <li class="dropdown nav-link">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./assets/img/avatar.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>mdo</strong>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas Product Create -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightProductCreate" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Create product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputProductCodeCreate" class="form-label">Code</label>
+            <input type="text" class="form-control" id="inputProductCodeCreate" placeholder="Code">
+          </div>
+          <div class="col-md-6">
+            <label for="inputProductNameCreate" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputProductNameCreate" placeholder="Name">
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputProductCategoryCreate" class="form-label">Category</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputProductCategoryCreate">
+                    <option selected>Select a category</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label class="input-group-text d-flex justify-content-center align-items-center cursor-pointer bg-create text-white"  data-bs-toggle="modal" data-bs-target="#modalCategoryCreate">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="inputProductPriceCreate" class="form-label">Price</label>
+            <input type="text" min="0" class="form-control" id="inputProductPriceCreate" placeholder="59.99">
+          </div>
+          <div class="col-12">
+            <label class="form-check-label" for="inputProductRadioTrueCreate">
+              Active
+            </label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputProductRadioTrueCreate" value="true" checked>
+              <label class="form-check-label" for="inputProductRadioTrueCreate">
+                Ready to sell
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputProductRadioFalseCreate" value="false">
+              <label class="form-check-label" for="inputProductRadioFalseCreate">
+                Not ready to sell
+              </label>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="inputProductsGroupFiles">Images</label>
+              <div class="input-group mb-3">
+                <input type="file" multiple class="form-control" id="inputProductsGroupFiles">
+                <label class="input-group-text" for="inputProductsGroupFiles">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+                </svg>
+              </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="inputProductDescriptionCreate" class="form-label">Description</label>
+            <textarea class="form-control" id="inputProductDescriptionCreate" rows="3" placeholder="Write your products description"></textarea>
+          </div>
+          
+          <span class="col-12 text-end">
+            <button type="submit" class="btn btn-primary px-5">Create</button>
+          </span>
+        </form>
+        
+        
+      </div>
+    </div>
+    <!-- End Offcanvas Product Create -->
+
+    <!-- Offcanvas Product Detail -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightProductDetail" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">PL-001</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade ">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner rounded-2">
+            <div class="carousel-item active">
+              <img loading="lazy" src="./assets/img/products/product-12.jpg" class="d-block w-100" alt="./assets/img/products/product-12.jpg">
+              
+            </div>
+            <div class="carousel-item">
+              <img loading="lazy" src="./assets/img/products/product-11.jpg" class="d-block w-100" alt="./assets/img/products/product-11.jpg">
+              
+            </div>
+            <div class="carousel-item">
+              <img loading="lazy" src="./assets/img/products/product-9.jpg" class="d-block w-100" alt="./assets/img/products/product-9.jpg">
+            
+            </div>
+          </div>
+          
+        </div>
+        <ul class="d-flex list list-unstyled">
+          <li class="me-2"><i class="bi bi-star-fill text-warning fs-5"></i></li>
+          <li class="me-2"><i class="bi bi-star-fill text-warning fs-5"></i></li>
+          <li class="me-2"><i class="bi bi-star-fill text-warning fs-5"></i></li>
+          <li class="me-2"><i class="bi bi-star-fill text-warning fs-5"></i></li>
+          <li class="me-2"><i class="bi bi-star-fill text-warning fs-5"></i></li>
+        </ul>
+        <strong class="m-0 p-0 h5">Product name</strong>
+        <p class="m-0 p-0">Category name</p>
+        <p class="m-0 p-0">
+         Active to show   
+         <svg class="color-delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+        </svg>
+        <svg class="color-create" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        </p>
+        <p class="m-0 p-0">
+          Stock: 4 units 
+        </p>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            
+              <p class="accordion-button collapsed rounded-2 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Description
+              </p>
+           
+            
+          </div>
+          <div id="flush-collapseOne" class="accordion-collapse collapse border-bottom" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia corrupti laborum beatae dolorem sit? Dolore repellendus delectus, incidunt qui aliquid minima id sit, repudiandae quas aperiam voluptatem quaerat consequatur perferendis quis accusamus possimus quasi, deserunt itaque ipsum aliquam distinctio? Ut, eligendi vel sint fugiat, iste eveniet veritatis ad debitis nemo sapiente esse quos, quod labore qui itaque voluptate dolorem voluptatum voluptates explicabo praesentium perspiciatis quia omnis veniam sequi! Eligendi aliquid repudiandae reprehenderit nostrum numquam eius vitae error ad minima, libero voluptatibus. Eveniet delectus aliquid, earum odio ratione doloribus recusandae, corrupti dolore eos deserunt accusamus perspiciatis ullam! Optio perferendis quam assumenda nobis nam cumque nostrum ea ut laudantium? Reiciendis, ipsam dolor? Eum quae qui quas nihil tempore dolorum sequi totam iste quo, ipsum, sapiente distinctio soluta aut saepe debitis animi, placeat eos veniam ipsam laborum temporibus blanditiis alias nulla minus. Dolorum voluptate consectetur ea atque assumenda! Aspernatur corporis quas aut a!.</div>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    <!-- End Offcanvas Product Detail -->
+
+    <!-- Offcanvas Product Update -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightProductUpdate" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Update product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputProductCodeUpdate" class="form-label">Code</label>
+            <input type="text" class="form-control" id="inputProductCodeUpdate" placeholder="Code">
+          </div>
+          <div class="col-md-6">
+            <label for="inputProductNameUpdate" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputProductNameUpdate" placeholder="Name">
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputProductCategoryUpdate" class="form-label">Category</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputProductCategoryUpdate">
+                    <option selected>Select a category</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label class="input-group-text d-flex justify-content-center align-items-center cursor-pointer bg-create text-white"  data-bs-toggle="modal" data-bs-target="#modalCategoryCreate">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="inputProductPriceUpdate" class="form-label">Price</label>
+            <input type="text" min="0" class="form-control" id="inputProductPriceUpdate" placeholder="59.99">
+          </div>
+          <div class="col-12">
+            <label class="form-check-label" for="inputProductRadioTrueUpdate">
+              Active
+            </label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputProductRadioTrueUpdate" value="true" checked>
+              <label class="form-check-label" for="inputProductRadioTrueUpdate">
+                Ready to sell
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputProductRadioFalseUpdate" value="false">
+              <label class="form-check-label" for="inputProductRadioFalseUpdate">
+                Not ready to sell
+              </label>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="inputProductsGroupFiles">Images</label>
+              <div class="input-group mb-3">
+                <input type="file" multiple class="form-control" id="inputProductsGroupFiles">
+                <label class="input-group-text" for="inputProductsGroupFiles">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+                </svg>
+              </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="inputProductDescriptionUpdate" class="form-label">Description</label>
+            <textarea class="form-control" id="inputProductDescriptionUpdate" rows="3" placeholder="Write your products description"></textarea>
+          </div>
+          
+          <span class="col-12 text-end">
+            <button type="submit" class="btn btn-primary px-5">Save</button>
+          </span>
+        </form>
+        
+        
+      </div>
+    </div>
+    <!-- End Offcanvas Product Update -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      
+      
+      
+      
+      <div class="d-flex align-items-center p-3 my-3  rounded shadow ">
+        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="100" height="100" viewBox="0 0 879.12502 631.48453" xmlns:xlink="http://www.w3.org/1999/xlink"><rect id="b93b1ef9-49b5-4354-905b-d9dddde45a10" data-name="Rectangle 338" x="0.27499" y="0.36501" width="644.72498" height="412.91" fill="#e6e6e6"/><rect id="ef7485f9-8ecd-46d9-949e-abdd8aa9e360" data-name="Rectangle 339" x="18.711" y="52.15401" width="607.85303" height="336.69299" fill="#fff"/><rect id="b4c2a7ec-beab-40bc-b587-23a202562f78" data-name="Rectangle 340" width="644.72498" height="27.39" fill="#6c63ff"/><circle id="bd6d3ebf-cb6f-4fcb-b7cd-ad5a287d3324" data-name="Ellipse 513" cx="20.355" cy="14.004" r="5.077" fill="#fff"/><circle id="efb1158e-7a7d-4adb-9063-fc7dc50c76d5" data-name="Ellipse 514" cx="39.624" cy="14.004" r="5.077" fill="#fff"/><circle id="b51f9e19-f36b-4f29-afd5-008bb0fc20dd" data-name="Ellipse 515" cx="58.89299" cy="14.004" r="5.077" fill="#fff"/><rect id="b636d421-4358-445b-b124-1d058e78c733" data-name="Rectangle 341" x="93.5" y="79.84801" width="118.887" height="128.98199" fill="#e6e6e6"/><rect id="ab9c902d-64a9-4a2b-a9ec-6dc7022c80f6" data-name="Rectangle 342" x="263.19299" y="79.84801" width="118.887" height="128.98199" fill="#e6e6e6"/><rect id="f4a232af-026e-479b-8040-5c62e5965d9e" data-name="Rectangle 343" x="432.88501" y="79.84801" width="118.887" height="128.98199" fill="#e6e6e6"/><rect id="ada16aa4-f84d-4851-87ee-a2852d96226a" data-name="Rectangle 344" x="93.5" y="232.17599" width="118.887" height="128.98199" fill="#e6e6e6"/><rect id="ebfcbe07-3b81-4d69-a4f5-6a8318d20e8d" data-name="Rectangle 345" x="263.19299" y="232.17599" width="118.887" height="128.98199" fill="#e6e6e6"/><rect id="ead16b6d-d132-49a9-a42f-1f570e523a46" data-name="Rectangle 346" x="432.88501" y="232.17599" width="118.887" height="128.98199" fill="#e6e6e6"/><path id="ab8ff6e3-f37e-4992-8347-ee905fdba816-703" data-name="Path 2643" d="M452.3655,399.58275l21.722-8.588,2.526,42.939s4.546,13.134,3.031,18.186c0,0,1.01,8.588-1.516,9.093s-9.6,1.516-10.1,1.01-.505-2.021-.505-2.021-5.052,3.536-5.557,7.577c0,0-21.217,6.567-21.722.505s10.608-11.114,10.608-11.114l8.588-13.134Z" transform="translate(-160.43749 -134.25774)" fill="#fff"/><path id="e647835b-1773-4993-9de9-376235a5ef39-704" data-name="Path 2644" d="M498.33749,399.58275l21.719-8.588,2.526,42.939s4.546,13.134,3.031,18.186c0,0,1.01,8.588-1.516,9.093s-9.6,1.516-10.1,1.01-.505-2.021-.505-2.021-5.052,3.536-5.557,7.577c0,0-21.217,6.567-21.722.505s10.608-11.114,10.608-11.114l8.588-13.134Z" transform="translate(-160.43749 -134.25774)" fill="#fff"/><path id="ee50e840-b8e9-4cc0-9b2e-64e12816c6e5-705" data-name="Path 2645" d="M500.4595,233.76773s-4.625,12.924.734,18.752l-4.468,15.353s15.874,47.622,11.339,54.274c0,0-16.932,8.466-50.8-3.024l13.757-53.367-1.965-22.526,2.721-10.583,6.047-.6s-3.628,13.606,3.024,15.723,13.141-15.383,13.141-15.383Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/><path id="b668efb4-5504-4326-941b-9be143c4d030-706" data-name="Path 2646" d="M286.85848,317.19475l5.837,2.388,27.858-36.613,8.755,42.98,5.837-1.061c3.744-37.055,6.8-74.85,3.051-92.726l-21.623-.929-9.816,31.311-4.776,21.225Z" transform="translate(-160.43749 -134.25774)" fill="#fff"/><path id="b699d661-049e-451c-8a7e-64343ac1c335-707" data-name="Path 2647" d="M641.11547,231.86974s-7.966,11.074-7.577,15.543,5.44,77.327,5.44,77.327l11.852.583-3.5-52.458,2.914-14.183,7.189,66.058,14.572.389-13.017-85.681-2.526-7.577Z" transform="translate(-160.43749 -134.25774)" fill="#fff"/><path id="a4f25674-ecb7-42aa-ae9a-d508200b11eb-708" data-name="Path 2648" d="M686.1375,410.27574c-2.115-2.538-5.751-3.91-9.242-4.652.1-.317-10.618-2.532-10.8-2.076l-4.041-3.219-12.417,6.447-6.977-4.75-3.241,1.15c.132-.572-10.061,1.194-10.061,1.194-1.947.07-4.434.192-7.218.406-9.749.75-10.5,26-10.5,26a39.85013,39.85013,0,0,1,14.113-2.955l2.635,30.2c13.553-1.162,27.767.19,42.5,3.5l6.909-23.74,16.089-6.257S691.1375,416.27474,686.1375,410.27574Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/><path id="b6d7fb25-d94e-4ba0-9382-3f72a4c565e4-709" data-name="Path 2649" d="M340.8785,395.89473c-1.743-2.091-4.738-3.222-7.615-3.833.086-.262-8.749-2.086-8.9-1.71l-3.33-2.652-10.229,5.312-5.749-3.913-2.67.948c.109-.471-8.29.983-8.29.983-1.6.058-3.654.158-5.947.335-8.033.618-8.651,21.421-8.651,21.421a32.837,32.837,0,0,1,11.629-2.435l2.171,60.914c11.167-.958,22.879.157,35.015,2.884l5.692-55.59,13.257-5.155S344.99749,400.83974,340.8785,395.89473Z" transform="translate(-160.43749 -134.25774)" fill="#fff"/><path id="abb48a01-b3b6-4bc9-9e6f-5cc93133d8eb-710" data-name="Path 2682" d="M909.8875,412.10872h57v-30.5a28.5,28.5,0,1,0-57,0Z" transform="translate(-160.43749 -134.25774)" fill="#2f2e41"/><path id="f1b40e10-dbea-4491-93e9-bf21ee1afe95-711" data-name="Path 2683" d="M884.4425,751.45272h-12.259l-5.833-47.292h18.094Z" transform="translate(-160.43749 -134.25774)" fill="#ffb6b6"/><path id="f19e2682-d3fb-40a9-8809-be7b68a78ac9-712" data-name="Path 2684" d="M887.56951,747.44972h-24.145a15.387,15.387,0,0,0-15.386,15.385v.5h39.531Z" transform="translate(-160.43749 -134.25774)" fill="#2f2e41"/><path id="b3618d44-3857-42e4-aed2-10e127155f21-713" data-name="Path 2685" d="M1030.99651,735.09173l-10.676,6.027-28.328-38.311,15.757-8.895Z" transform="translate(-160.43749 -134.25774)" fill="#ffb6b6"/><path id="a172411a-a77d-4e4f-ac70-c8342021cfb1-714" data-name="Path 2686" d="M1031.7515,730.06874l-21.025,11.866h0a15.387,15.387,0,0,0-5.834,20.963l.246.435,34.424-19.433Z" transform="translate(-160.43749 -134.25774)" fill="#2f2e41"/><path id="bd1532c7-07e2-44c0-82ff-fc8e0d37942d-715" data-name="Path 2687" d="M952.64249,538.78172l.946,4.73s2.838,2.838,1.419,4.257-.946,8.042-.946,8.042c.794,12.076,16.573,79.936,19.395,93.189,0,0,21.76,14.191,38.789,42.1s17.5,35.005,17.5,35.005l-18.918,8.043-47.3-57.238s-13.245-8.042-17.976-15.137-34.064-80.418-34.064-80.418l-16.56,76.63306s.946,27.909-3.311,45.885a192.52229,192.52229,0,0,0-4.73,34.532l-22.233-2.365s1.419-67.172,3.784-74.268c0,0-9.934-81.836,9.934-114.476l16.012-42.687,15.682-6.036Z" transform="translate(-160.43749 -134.25774)" fill="#2f2e41"/><path id="e2a54528-859f-4f0e-9aca-6130773a8d3b-716" data-name="Path 2688" d="M938.68153,360.56471c-29.847.51-29.842,44.907,0,45.412C968.52653,405.46672,968.5225,361.06972,938.68153,360.56471Z" transform="translate(-160.43749 -134.25774)" fill="#ffb8b8"/><path id="aeace49c-5333-476f-965d-52da8fac2318-717" data-name="Path 2689" d="M915.71052,382.09273h5.073l1.381-3.454-.691,3.454h27.745l-.9-7.227,6.744,7.227h6.727v-3.916a23.038,23.038,0,1,0-46.076-.03259v.03259Z" transform="translate(-160.43749 -134.25774)" fill="#2f2e41"/><path id="aa5a3aa9-e50b-4b43-b42d-0c1415925835-718" data-name="Path 2690" d="M907.9035,419.23473l56.4.457-11.916,120.917s-65.959-3.481-66-23.614l6.179-17.891Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/><path id="aca4d347-909c-4b66-b72e-6bb1477aee43-719" data-name="Path 2693" d="M966.7275,552.29772a9.377,9.377,0,0,1,2.7-14.122l-2.451-21.287,12.573-4.645,3.039,30.111a9.428,9.428,0,0,1-15.861,9.943Z" transform="translate(-160.43749 -134.25774)" fill="#ffb6b6"/><path id="eab38d24-ad2d-4cbe-aaaa-db975580c866-720" data-name="Path 2694" d="M956.8875,430.10872l7.421-10.373s5.079-1.127,11.079,5.873,9.5,94.5,9.5,94.5l-22,5-13-62Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/><polygon points="672.135 390.739 673.771 468.476 724.096 495.071 815.744 478.705 817.995 397.899 759.896 377.441 672.135 390.739" fill="#fff"/><path d="M884.40233,630.16805,833.4151,603.22344l-1.66142-78.9158,88.65793-13.43306.18894.06631L979.252,531.593l-2.28476,82.04559ZM835.002,602.244l49.66249,26.24458,90.73236-16.20225,2.2157-79.56639L920.256,512.52345,833.39038,525.685Z" transform="translate(-160.43749 -134.25774)" fill="#cacaca"/><polygon points="722.973 411.816 722.776 411.738 671.838 391.485 672.431 389.992 723.173 410.166 817.885 397.103 818.105 398.695 722.973 411.816" fill="#cacaca"/><rect x="883.2183" y="545.24581" width="1.60739" height="84.08562" transform="translate(-167.5157 -123.4613) rotate(-0.69695)" fill="#cacaca"/><polygon points="716.536 407.792 698.174 400.348 786.569 386.263 804.931 393.706 716.536 407.792" fill="#cacaca"/><rect x="842.41659" y="541.27671" width="1.60727" height="23.18645" transform="translate(-158.47692 974.46083) rotate(-66.70554)" fill="#cacaca"/><rect x="852.06024" y="567.79675" width="1.60727" height="23.18645" transform="translate(-177.00517 999.35088) rotate(-66.70554)" fill="#6c63ff"/><polygon points="392.135 498.739 393.771 576.476 444.096 603.071 535.744 586.705 537.995 505.899 479.896 485.441 392.135 498.739" fill="#fff"/><path d="M604.40233,738.16805,553.4151,711.22344l-1.66142-78.9158,88.65793-13.43306.18894.06631L699.252,639.593l-2.28476,82.04559ZM555.002,710.244l49.66249,26.24458,90.73236-16.20225,2.2157-79.56639L640.256,620.52345,553.39038,633.685Z" transform="translate(-160.43749 -134.25774)" fill="#cacaca"/><polygon points="442.973 519.816 442.776 519.738 391.838 499.485 392.431 497.992 443.173 518.166 537.885 505.103 538.105 506.695 442.973 519.816" fill="#cacaca"/><rect x="603.2183" y="653.24581" width="1.60739" height="84.08562" transform="translate(-168.8501 -126.85915) rotate(-0.69695)" fill="#cacaca"/><polygon points="432.088 513.962 418.174 508.348 506.569 494.263 520.482 499.877 432.088 513.962" fill="#cacaca"/><rect x="562.41659" y="649.27671" width="1.60727" height="23.18645" transform="translate(-426.94537 782.57581) rotate(-66.70554)" fill="#cacaca"/><rect x="572.06024" y="675.79675" width="1.60727" height="23.18645" transform="translate(-445.47361 807.46587) rotate(-66.70554)" fill="#6c63ff"/><polygon points="479.563 509.397 481.463 599.638 539.882 630.51 646.271 611.512 648.883 517.709 581.44 493.961 479.563 509.397" fill="#6c63ff"/><path d="M700.16688,765.74226l-59.18795-31.27835-1.92864-91.60849,102.91755-15.59363.21933.077L810.272,651.3125l-2.65223,95.24168ZM642.821,733.327l57.65013,30.46571,105.32563-18.80819,2.57206-92.36374-66.58163-23.44486-100.837,15.2784Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/><polygon points="538.578 533.865 538.35 533.774 479.218 510.264 479.907 508.53 538.81 531.949 648.755 516.785 649.01 518.633 538.578 533.865" fill="#3f3d56"/><rect x="698.79241" y="667.16124" width="1.86593" height="97.60983" transform="translate(-169.09453 -125.69351) rotate(-0.69695)" fill="#3f3d56"/><polygon points="526.888 527.112 509.79 520.553 612.402 504.202 629.501 510.761 526.888 527.112" fill="#3f3d56"/><rect x="651.42821" y="662.55376" width="1.86578" height="26.91572" transform="translate(-386.96327 873.60414) rotate(-66.70554)" fill="#3f3d56"/><rect x="662.62293" y="693.33925" width="1.86578" height="26.91572" transform="translate(-408.47156 902.49747) rotate(-66.70554)" fill="#fff"/><path id="af1e2e82-f248-43bd-a869-489ddf745161-721" data-name="Path 2691" d="M861.10549,537.85072a9.377,9.377,0,0,0,3.673-13.9l11.422-18.13-9.324-9.628-15.771,25.829a9.428,9.428,0,0,0,10,15.83Z" transform="translate(-160.43749 -134.25774)" fill="#ffb6b6"/><path id="ed6195a6-5e50-4e12-8380-54bfefa6b2ae-722" data-name="Path 2692" d="M916.57052,424.00072l-8.183-5.392s-6.315,1.416-13.031,14.334-33.8,70.672-33.8,70.672l11.133,11.3,29.7-45.309Z" transform="translate(-160.43749 -134.25774)" fill="#3f3d56"/></svg>
+        <div class="lh-1 p-2 fs-4">
+          <h1 class="h6 mb-0 lh-1">Products</h1>
+          <small>All the products</small>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex">
+          <span class="w-100 text-end">
+          <button type="button" class="btn px-4 bg-create text-white shadow"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductCreate" aria-controls="offcanvasRight"
+          >
+            <svg class="" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </svg>
+            </button>
+        </span>
+      </div>
+      
+
+      <form class="row g-3 py-4">
+        
+        <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+          <label for="inputProductCodeFilter" class="form-label">Code</label>
+          <input type="text" class="form-control" id="inputProductCodeFilter" placeholder="Product code">
+        </div>
+        <div class="col-6  col-sm-4 col-md-4 col-lg-2">
+            <label for="inputProductNameFilter" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputProductNameFilter" placeholder="Product name">
+          </div>
+        <div class="col-6  col-sm-4 col-md-4 col-lg-2">
+          <label for="inputCategoryFilter" class="form-label">Category</label>
+          <select id="inputCategoryFilter" class="form-select" aria-label="Default select example">
+            <option selected>Select category</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        
+        <div class=" col-6  col-sm-4 col-md-4 col-lg-3">
+          <label for="inputStockFilter" class="form-label">Stock</label>
+          <input type="number" class="form-control" id="inputStockFilter" placeholder="greater than the value">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-3">
+          <label for="inputActiveFilter" class="form-label">Active</label>
+          <select id="inputActiveFilter" class="form-select" aria-label="Default select example">
+            <option selected>Your products is active?</option>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+        
+        <div class="col-12">
+            <small class="d-block text-end mt-3">
+                <button type="submit" class="btn btn-primary border-0 shadow border px-5">Filter</button>
+            </small>
+        </div>
+      </form>
+
+      <div class="table-responsive table-bordered">
+        <caption>Products shown 3 of 100 </caption>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr class="text-center">
+              <th  scope="col">Code</th>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Active</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td class="border small table-min-code">PL-001</td>
+              <td class="border small table-min">product name one</td>
+              <td class="border small table-min">Category name</td>
+              <td class="border small table-width-50">
+                <svg class="color-delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </td>
+              <td class="border small">48</td>
+              <td class="border small">300.00</td>
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between align-items-center">
+                  <i class="bi bi-eye-fill cursor-pointer color-view" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductDetail" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalProductDelete"></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <td class="border small table-min-code">PL-002</td>
+              <td class="border small table-min">product name two</td>
+              <td class="border small table-min">Category name</td>
+              <td class="border small table-width-50">
+                <svg class="color-delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </td>
+              <td class="border small">120</td>
+              <td class="border small">49.99</td>
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between  align-items-center">
+                  <i class="bi bi-eye-fill cursor-pointer color-view" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductDetail" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalProductDelete"></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <td class="border small table-min-code">PL-003</td>
+              <td class="border small table-min">product name three</td>
+              <td class="border small table-min">Category name</td>
+              <td class="border small table-width-50">
+                <svg class="color-create" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+              </td>
+              <td class="border small">53</td>
+              <td class="border small">88.57</td>
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between   align-items-center">
+                  <i class="bi bi-eye-fill cursor-pointer color-view" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductDetail" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightProductUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalProductDelete"></i>
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+      </div>
+      <nav class="mt-2" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center justify-content-sm-end justify-content-md-end">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-whatsapp  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram  fs-3"></i></a></li>
+          </ul>
+        
+        <p class="text-center text-body-secondary">© 2024 MangelRyujin, Developer</p>
+      </footer>
+      
+
+    </main>
+  </div>
+</div>
+
+<script src="./assets/dist/js/popper.min.js"></script>
+<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/toast.js"></script>
+</body>
+</html>

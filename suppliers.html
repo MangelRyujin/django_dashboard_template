@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="./assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Dashboard Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    <!-- <link href="sidebars.css" rel="stylesheet"> -->
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" >
+      <button class="btn btn-primary py-2 dropdown-toggle d-flex align-items-center rounded-circle "
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)"
+              style="width: 40xp; height: 40px;">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="bootstrap" viewBox="0 0 118 94">
+    <title>Bootstrap</title>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+  </symbol>
+  <symbol id="home" viewBox="0 0 16 16">
+    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+  </symbol>
+  <symbol id="speedometer2" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+    <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+  </symbol>
+  <symbol id="table" viewBox="0 0 16 16">
+    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+  </symbol>
+  <symbol id="people-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+  </symbol>
+  <symbol id="grid" viewBox="0 0 16 16">
+    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+  </symbol>
+</svg>
+
+<!-- Modal Suppliers Delete -->
+<div class="modal fade" id="modalSuppliersDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">Do you want to delete the suppliers?</h5>
+          <p class="mb-0">If you accept, the selected suppliers will be removed completely.</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button id="liveToastBtn" data-bs-dismiss="modal" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Yes, delete</strong></button>
+          <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal"><strong>No thanks</strong></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Suppliers Delete -->
+<div class="toast-container position-fixed bottom-0  p-3">
+  <div id="liveToast" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        The suppliers has been removed.
+      </div>
+      <button type="button" class="btn-close  me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<!-- End Toast Suppliers Delete -->
+
+
+<!-- Modal Login -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          <hr class="my-4">
+          <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x me-1" viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+            </svg>
+            Sign up with Twitter
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook  me-1" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+            </svg>
+            Sign up with Facebook
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-1" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+            Sign up with GitHub
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Login -->
+
+<!-- Modal Category Create -->
+<div class="modal fade" id="modalCategoryCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-12">
+            <label for="inputSuppliersNameUpdate" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputSuppliersNameUpdate" placeholder="Name">
+          </div>
+          <div class="col-12">
+            <label class="form-check-label" for="inputSuppliersRadioTrueUpdate">
+              Active
+            </label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputSuppliersRadioTrueUpdate" value="true" checked>
+              <label class="form-check-label" for="inputSuppliersRadioTrueUpdate">
+                Ready to sell
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="inputSuppliersRadioFalseUpdate" value="false">
+              <label class="form-check-label" for="inputSuppliersRadioFalseUpdate">
+                Not ready to sell
+              </label>
+            </div>
+          </div>
+          <span class="col-12 text-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+            <button type="button" class="btn btn-primary px-5" data-bs-dismiss="modal">Save</button>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Category Create -->
+
+<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+
+    <ul class="navbar-nav flex-row d-md-none">
+      
+      <li class="nav-item text-nowrap">
+        <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+      </li>
+    </ul>
+</header>
+
+<div class="container-fluid">
+  <div class="row ">
+    <div class="sidebar side-fix h-100  col-md-3 col-lg-2 p-0 bg-dark">
+      <div class="offcanvas-md offcanvas-end bg-dark" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-white" id="sidebarMenuLabel">Company name</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body  d-md-flex flex-column p-0 pt-1 px-1  ">
+          <ul class="nav nav-pills flex-column w-100 mb-auto ">
+            
+            <li>
+              <a href="dashboard.html" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="orders.html" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                Orders
+              </a>
+            </li>
+            <li>
+              <a href="categories.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                  <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2"/>
+                </svg>
+                Categories
+              </a>
+            </li>
+            <li>
+              <a href="products.html" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                Products
+              </a>
+            </li>
+            <li>
+              <a href="suppliers.html" class="nav-link text-white active">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                </svg>
+                Suppliers
+              </a>
+            </li>
+            <li>
+              <a href="users.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+                Users
+              </a>
+            </li>
+            <li>
+              <a href="coupons.html" class="nav-link text-white">
+                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift-fill" viewBox="0 0 16 16">
+                  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
+                </svg>
+                Coupons
+              </a>
+            </li>
+
+            <hr>
+            <!-- Button trigger modal -->
+            <li>
+              <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                Login
+              </a>
+            </li>
+            <li class="dropdown nav-link">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./assets/img/avatar.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>mdo</strong>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas Suppliers Create -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSuppliersCreate" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Create suppliers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputSuppliersFirstNameCreate" class="form-label">First name</label>
+            <input type="text" class="form-control" id="inputSuppliersFirstNameCreate" placeholder="First name">
+          </div>
+          <div class="col-md-6">
+            <label for="inputSuppliersLastNameCreate" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="inputSuppliersLastNameCreate" placeholder="Last name">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersCICreate" class="form-label">CI</label>
+            <input type="text" class="form-control" id="inputSuppliersCICreate" placeholder="CI">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersEmailCreate" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputSuppliersEmailCreate" placeholder="Email">
+          </div>
+          
+          <div class="col-12">
+            <label for="inputSuppliersPhoneNumberCreate" class="form-label">PhoneNumber</label>
+            <input type="text" class="form-control" id="inputSuppliersPhoneNumberCreate" placeholder="+53 55193484">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersAddressCreate" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputSuppliersAddressCreate" placeholder="Your addresss">
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputSuppliersCountryCreate" class="form-label">Country</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputSuppliersCountryCreate">
+                    <option selected>Select a country</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputSuppliersCityCreate" class="form-label">City</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputSuppliersCityCreate">
+                    <option selected>Select a city</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <span class="col-12 text-end">
+            <button type="submit" class="btn btn-primary px-5">Create</button>
+          </span>
+        </form>
+        
+        
+      </div>
+    </div>
+    <!-- End Offcanvas Suppliers Create -->
+
+    
+
+    <!-- Offcanvas Suppliers Update -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightSuppliersUpdate" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Update suppliers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputSuppliersFirstNameUpdate" class="form-label">First name</label>
+            <input type="text" class="form-control" id="inputSuppliersFirstNameUpdate" placeholder="First name">
+          </div>
+          <div class="col-md-6">
+            <label for="inputSuppliersLastNameUpdate" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="inputSuppliersLastNameUpdate" placeholder="Last name">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersCIUpdate" class="form-label">CI</label>
+            <input type="text" class="form-control" id="inputSuppliersCIUpdate" placeholder="CI">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersEmailUpdate" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputSuppliersEmailUpdate" placeholder="Email">
+          </div>
+          
+          <div class="col-12">
+            <label for="inputSuppliersPhoneNumberUpdate" class="form-label">PhoneNumber</label>
+            <input type="text" class="form-control" id="inputSuppliersPhoneNumberUpdate" placeholder="+53 55193484">
+          </div>
+          <div class="col-12">
+            <label for="inputSuppliersAddressUpdate" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputSuppliersAddressUpdate" placeholder="Your address">
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputSuppliersCountryUpdate" class="form-label">Country</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputSuppliersCountryUpdate">
+                    <option selected>Select a country</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <label for="inputSuppliersCityUpdate" class="form-label">City</label>
+                <div class="input-group">
+                  <select class="form-select" id="inputSuppliersCityUpdate">
+                    <option selected>Select a city</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <span class="col-12 text-end">
+            <button type="submit" class="btn btn-primary px-5">Save</button>
+          </span>
+        </form>
+        
+        
+      </div>
+    </div>
+    <!-- End Offcanvas Suppliers Update -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      
+      
+      
+      
+      <div class="d-flex align-items-center p-3 my-3  rounded shadow ">
+        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="100" height="100" viewBox="0 0 833.22212 633.11008" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M954.31369,708.90718c-27.3,20.79-60.56,41.85-93.26,51.78a132.151,132.151,0,0,1-29,5.61,87.68166,87.68166,0,0,1-27.45-2.12994c-23.6-5.87006-45.49-16.15-66.67-28.16-6.92-3.93-13.76-8.04-20.56-12.24-11.1-6.86-22.09-13.96-33.11-20.89-1.65-1.05-3.29-2.08-4.94-3.1h-.01q-3.99-2.505-8-4.94c-.47-.29-.94-.57-1.42-.86q-7.57508-4.59-15.41-8.97c-.64-.35-1.28-.71-1.92-1.06a337.75842,337.75842,0,0,0-31.12-15.23c-6.98005-2.94-14.05-5.59-21.19-7.85h-.01c-2.73-.86-5.47-1.67-8.22-2.41a172.03228,172.03228,0,0,0-25.13995-4.92,137.46074,137.46074,0,0,0-35.21.28c-.79.11-1.57.22-2.36.35-31.6,5.06-60.44,22.12-92.18,26.14-1.03.13-2.05.25-3.08.34-.44.04-.88.09-1.32.12a126.18456,126.18456,0,0,1-27.68-.68c-25.63-3.38-50.59-13.87-73.06-27.09-52.53-30.91-95.13-78.42-121.03-133.44a297.4536,297.4536,0,0,1-11.82995-28.93,278.46974,278.46974,0,0,1-15.67005-84.85c-2.43-100.36,54.6-201.05,144.14-246.44,89.55-45.39,207.35-30.38,279.57,39.35,43.81,42.3,69.16,99.62,102.13,150.83,32.97,51.2,79.83,100.11,140.27,107.57,30.79,3.8,63.01-3.55,92.52,6.01,16.34,5.3,30.28,15.44,41.51,28.36a127.18525,127.18525,0,0,1,18.78,29,141.92676,141.92676,0,0,1,8.73,23.54c.41,1.49.79,2.98,1.16,4.47C1026.97366,608.50715,1003.48367,671.44715,954.31369,708.90718Z" transform="translate(-183.38894 -133.44496)" fill="#f2f2f2"/><rect x="159.66474" y="466.77221" width="145" height="51" rx="25.49997" fill="#3f3d56"/><path d="M434.05368,638.21717v42.43a125.55316,125.55316,0,0,1-29-.56v-41.87Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><path d="M531.67368,653.81715c-.79.11-1.57.22-2.36.35-31.6,5.06-60.44,22.12-92.18,26.14-1.03.13-2.05.25-3.08.34-.44.04-.88.09-1.32.12-7.75-7.59-15.5-15.67-22.78-24.04-3.95-4.53-7.77-9.15-11.36005-13.83-9.32-12.08-17.22-24.5-22.44-36.7.53-5.85-3.11-19.38-4.85-29.74l-.01-.01c-.74-4.35-1.14-8.13-.77-10.56,2.12006-14.02,13.57-12.41,17.09-26.15a77.49954,77.49954,0,0,1,10.11-7.11c.59-.35,1.19-.7,1.81-1.05l38.2-26.4,14.6,14.32,22.22,21.8,24.08,23.61005-20.44,20.65s17.07995,19.69,37.05,45.94C520.60367,638.54713,526.17368,646.07716,531.67368,653.81715Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M861.05368,638.21717v122.47a132.151,132.151,0,0,1-29,5.61v-128.08Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><rect x="595.66474" y="494.77221" width="145" height="51" rx="25.49997" fill="#3f3d56"/><path d="M669.89371,693.97718q-7.57508-4.59-15.41-8.97c-.64-.35-1.28-.71-1.92-1.06l3.44-1.47,9.28-3.99.09-.04.1.34Z" transform="translate(-183.38894 -133.44496)" fill="#ffb6b6"/><path d="M684.2637,702.87715c-1.65-1.05-3.29-2.08-4.94-3.1h-.01q-3.99-2.505-8-4.94c-.47-.29-.94-.57-1.42-.86q-7.57508-4.59-15.41-8.97c-.64-.35-1.28-.71-1.92-1.06a337.75842,337.75842,0,0,0-31.12-15.23c-6.98005-2.94-14.05-5.59-21.19-7.85h-.01l-5.61-9.39-25.25-42.29-5.55-9.29s-18.93005,5.6-45.72,10.97c-9.75,1.96-20.53,3.88-31.84,5.5-12.09,1.72-24.77,3.09-37.37,3.75-6.01.32-12,.48-17.9.43-15.25-.1-29.9-1.53-42.73-4.93-4.28-4.02-17.18-9.49-26.42-14.5h-.01c-3.88-2.1-7.1-4.11-8.79-5.9-9.74-10.3-1.42-18.33-10.08-29.57a78.01753,78.01753,0,0,1,.63-12.34c.09-.68.18-1.37.29-2.07l2.73-46.36,20.28-2.68,30.86-4.08,33.43-4.42,3.68,28.82s26.03-1.32,59.01-.88c52.97.72,123.85,6,133.45,28.66.9,2.13,1.8,4.28,2.7,6.43q3.21,7.70994,6.36005,15.5c7.61,18.8,14.87,37.78,21.5,55.72,4.12,11.16,8,21.92,11.56994,31.99,2.87006,8.1,5.53,15.76,7.96,22.81,2.22,6.44,4.23,12.37,6.02,17.69C683.72366,701.26716,683.99368,702.08717,684.2637,702.87715Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M497.708,421.98972l-64.05525-54.40133,41.675-42.17691,29.075,47.62305,107.774,21.36695a20.90017,20.90017,0,1,1-2.96957,30.67819Z" transform="translate(-183.38894 -133.44496)" fill="#a0616a"/><path d="M377.04235,296.09186c-7.40272,24.08263,63.09957,81.52,63.09957,81.52.78339-5.78164,40.75579,44.07344,43.4754,39.55842,7.72908-12.83228,16.2337-44.55195,25.15668-48.606,5.10285-2.31848-24.17069-34.54346-24.17069-34.54346s-14.93261-19.756-34.6486-44.79433a53.41188,53.41188,0,0,0-47.084-20.96122S384.44509,272.00927,377.04235,296.09186Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><circle cx="224.82523" cy="66.00911" r="43.32403" fill="#a0616a"/><path d="M429.87619,271.41226c9.33357,5.54889,14.91693,15.74413,18.122,26.1187a247.51563,247.51563,0,0,1,10.63632,59.137l3.3853,60.08943,41.92648,127.94729c-36.3363,30.746-172.919,6.98768-172.919,6.98768s-4.19264-1.3974,0-5.59019,8.27421-.47818,4.08162-4.67087-1.3024.47819.0952-3.7145,0-1.3974-1.39755-2.79509,10.81911-13.97556,10.81911-13.97556L333.44532,447.5033,319.46986,299.36313c16.77065-20.96323,50.49849-33.3209,50.49849-33.3209l8.71485-15.68672,43.57423,3.48593Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><path d="M443.928,176.43671a20.07763,20.07763,0,0,1,7.13274,10.01951,141.01837,141.01837,0,0,0,.09279-19.65944c-.51064-4.60083-3.74974-5.63572-7.50039-6.83487-3.38718-1.0834-7.21783-2.30721-8.24844-6.77356-13.61863-13.24844-37.32575-12.58037-53.55037-7.95911-8.9276,2.543-14.0646,5.81022-14.52418,7.7242l-.09529.394-.36256.18128c-6.88167,3.44083-8.22124,14.30631-8.13272,22.8152.16765,16.03141,5.70292,34.239,8.8212,35.7181.1651.07829.20679.04764.27828-.0119h0c4.6953-3.75234,10.4238.28515,12.94119,2.48a45.05892,45.05892,0,0,1,40.34614-38.21931,70.7027,70.7027,0,0,0,9.72421-1.63058,20.47249,20.47249,0,0,1,4.96762-.6519A14.13716,14.13716,0,0,1,443.928,176.43671Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M389.33783,487.26235,376.085,480.475a3.63228,3.63228,0,0,1,3.27636-6.39728l13.25279,6.78739a3.63228,3.63228,0,0,1-3.27636,6.39728Z" transform="translate(-183.38894 -133.44496)" fill="#6c63ff"/><path d="M344.735,469.078l-21.80115-81.16214,58.25865-11.0284-3.13289,55.7091,76.54694,78.81836A20.90017,20.90017,0,1,1,434.732,534.97276Z" transform="translate(-183.38894 -133.44496)" fill="#a0616a"/><path d="M316.97223,296.91613c-19.77507,15.61152,5.60629,102.93512,5.60629,102.93512,3.9297-4.31264,8.49619,59.425,13.29948,57.25472,13.65136-6.16814,38.67257-27.43807,48.3187-25.70436,5.51648.99153-.26308-42.15927-.26308-42.15927s-1.063-24.74173-3.06092-56.54811a53.412,53.412,0,0,0-26.83569-44.0014S336.74735,281.3047,316.97223,296.91613Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><path d="M1002.3837,520.45716l-791.42-.9a297.4536,297.4536,0,0,1-11.82995-28.93l784.47.83A127.18525,127.18525,0,0,1,1002.3837,520.45716Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><path d="M750.31369,730.27717q-6.135,2.97-12.38,5.73c-6.92-3.93-13.76-8.04-20.56-12.24l25.22-11.08Z" transform="translate(-183.38894 -133.44496)" fill="#ffb6b6"/><path d="M934.1937,592.47718q-6.15006,8.25-12.69,16.17-6.03,7.305-12.38,14.33c-1.75,1.94-3.52,3.87-5.33,5.78q-4.995,5.355-10.21,10.53c-6.26,1.97-18.94,5.44-32.53,8.68-9.89,2.35-20.26,4.58-29,6a104.48641,104.48641,0,0,1-14.81,1.58c-5.9.05-11.89-.11-17.9-.43-6.78-.36-13.57-.92-20.28-1.64-17.45-1.83-34.35-4.68-48.93-7.61-5.34-1.06-10.36005-2.14-14.98-3.19-8.75-1.97-16.06995-3.81-21.37-5.21-5.97-1.56-9.37-2.57-9.37-2.57l-14.95,25.04-7.75994,12.99-5.7,9.55-1.52,2.53c-.64-.35-1.28-.71-1.92-1.06a337.75842,337.75842,0,0,0-31.12-15.23c-6.98005-2.94-14.05-5.59-21.19-7.85h-.01c-2.73-.86-5.47-1.67-8.22-2.41q1.29008-3.465,2.61005-6.98,2.45992-6.555,5.02-13.23c3.69-9.63995,7.51-19.42,11.44-29.15,3.22-7.99,6.5-15.95,9.82-23.8,1.53-3.62,4.64-6.8,8.99-9.59a52.32312,52.32312,0,0,1,6.49005-3.48c12.44995-5.67,30.79-9.36,51-11.73,1.67-.19,3.35-.38,5.04-.56,16.73-1.76,34.48-2.67,51.08-3.09,8.31-.21,16.33-.29,23.79-.3q3.615,0,7.03.02h.01c6.15.03,11.81.12,16.79.22.97.02,1.91.05,2.83.07h.01c.62.01,1.23005.03,1.83.04,10.89.28,17.57.62,17.57.62l2.59-20.32.53-4.1.5-3.9v-.01l.06-.49.41-.01,7.2-.14,60.52-1.18,33.06-.65-5.24,22.46-8.65,37.06C905.23367,592.09718,934.49368,587.50715,934.1937,592.47718Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M757.77365,726.57716c-2.47,1.26-4.96,2.5-7.46,3.7q-6.135,2.97-12.38,5.73c-6.92-3.93-13.76-8.04-20.56-12.24-11.1-6.86-22.09-13.96-33.11-20.89-1.65-1.05-3.29-2.08-4.94-3.1h-.01c-4.54-6.74-9.17-13.76-13.84-20.99-.07-.1-.13-.2-.19-.30005q-1.79993-2.75994-3.58-5.56c-7.47-11.7-14.98005-23.9-22.27-36.36l18.46-8.62,34.31994-16.02,5.92-2.75994,17.02,33.50994,15.18005,29.89,3.37994,6.65Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M762.94619,565.69478l87.50055-84.38371,24.25231-68.66967L838.92615,397.086c-18.37452,17.6014-38.23657,72.42429-38.23657,72.42429L740.4768,546.11471c-.4692.1607-.93718.33133-1.39933.53544a17.23112,17.23112,0,1,0,23.86872,19.04463Z" transform="translate(-183.38894 -133.44496)" fill="#ffb8b8"/><path d="M828.86025,404.75323l45.37541,14.40513.171-.02847c16.88869-2.829,30.9027-30.41247,39.68439-53.05389a31.59624,31.59624,0,0,0-16.08739-40.02451h0a31.66589,31.66589,0,0,0-33.1649,4.18441l-23.30057,19.03929Z" transform="translate(-183.38894 -133.44496)" fill="#6c63ff"/><path d="M934.01154,593.48992l.26505-.35223c14.15727-18.77628-5.2058-65.27339-8.13309-72.01689l13.16362-3.89925-2.29443-25.06377-1.10513-11.1761L946.1425,471.262l.03447-.24807,7.03885-50.09245,9.20992-33.1538A73.28485,73.28485,0,0,0,943.465,316.23291L924.63751,297.54l-22.5563-35.30637-37.8193-.97639-13.59975,24.15893a55.14122,55.14122,0,0,0-44.103,55.17854l1.28036,64.31568L794.26928,484.5975l-.3807,14.47486-13.31921,14.05527,2.46244,14.20951-9.963,3.9686-4.87538,20.19138c-1.862,2.32956-14.15633,17.87008-14.26818,22.20243-.01679.65043.44707,1.29151,1.45938,2.01562,7.958,5.69367,52.43741,18.031,72.456,10.61389,21.32343-7.894,104.89466,6.93176,105.7366,7.08256Z" transform="translate(-183.38894 -133.44496)" fill="#6c63ff"/><circle cx="696.47956" cy="66.8854" r="50.1036" fill="#ffb8b8"/><path d="M873.75623,251.10436a136.26665,136.26665,0,0,0,23.18064-1.62c7.59922-1.54533,24.59947-14.00321,29.33857-21.4998h0c3.52093-5.56989,5.77245-14.26768,7.04151-20.583a60.91432,60.91432,0,0,0-10.65371-48.35812,19.24494,19.24494,0,0,0-7.77317-6.63435c-.27844-.10888-.565-.20537-.85454-.28786a23.74464,23.74464,0,0,1-11.81175-7.30889,19.58589,19.58589,0,0,0-1.96357-2.02086,29.2483,29.2483,0,0,0-12.20276-6.12728c-7.25394-1.94141-17.752-.01431-31.20184,5.73333-6.75724,2.88773-14.14724,1.84266-19.83226.60946a1.86014,1.86014,0,0,0-1.75136.6,13.13152,13.13152,0,0,1-8.92485,3.55766c-2.032.08923-4.16392,2.90278-6.74081,6.57174-.5847.83285-1.267,1.80487-1.75914,2.39607l-.06607-1.13583-1.14927,1.26711a15.93481,15.93481,0,0,0,7.19417,25.96108,31.07641,31.07641,0,0,0,6.2501.996c1.27917.11508,2.60233.23413,3.87032.45413a24.02454,24.02454,0,0,1,17.8528,15.59016,6.28282,6.28282,0,0,0,9.483,3.05031,10.3807,10.3807,0,0,1,9.459-1.72243,6.89123,6.89123,0,0,1,3.04595,3.455,8.98031,8.98031,0,0,0,3.40768,3.97567c5.14968,2.65506,5.50461,14.41709,3.6551,24.22217-1.78279,9.45123-5.307,16.28835-8.57,16.62634-2.512.25986-2.79926.43831-2.98114.88257l-.16246.3977.28218.372A10.2608,10.2608,0,0,0,873.75623,251.10436Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><path d="M841.30225,389.605l-19.31863-38.5155c-28.04093,1.91544-83.6946,34.33734-83.6946,34.33734L632.99029,407.75242a19.02347,19.02347,0,1,0,5.18645,32.5081L772.123,430.65926Z" transform="translate(-183.38894 -133.44496)" fill="#ffb8b8"/><path d="M833.5105,395.92917l50.45383-37.49451,8.88732-32.02709a34.982,34.982,0,0,0-10.52129-35.39425h0a34.89929,34.89929,0,0,0-47.624,1.53654c-18.98656,18.95124-40.64185,45.39-35.99009,63.72324l.04709.18584Z" transform="translate(-183.38894 -133.44496)" fill="#6c63ff"/><rect x="452.66474" y="362.77221" width="135" height="18" fill="#fff"/><rect x="107.66474" y="362.77221" width="135" height="18" fill="#fff"/><path d="M441.81766,409.65536v85.704a4.12233,4.12233,0,0,0,4.11906,4.11906H572.94121a4.12231,4.12231,0,0,0,4.11906-4.11906v-85.704a4.12431,4.12431,0,0,0-4.11906-4.11451H445.93672A4.12433,4.12433,0,0,0,441.81766,409.65536Z" transform="translate(-183.38894 -133.44496)" fill="#3f3d56"/><path d="M444.79712,410.72172v83.58039a2.20522,2.20522,0,0,0,2.20141,2.20141H571.884a2.2052,2.2052,0,0,0,2.20141-2.20141V410.72172a2.2062,2.2062,0,0,0-2.20141-2.206H446.99853A2.20622,2.20622,0,0,0,444.79712,410.72172Z" transform="translate(-183.38894 -133.44496)" fill="#6c63ff"/><path d="M439.16149,512.0739a2.46987,2.46987,0,0,0,1.94346.92983h135.992A2.5024,2.5024,0,0,0,579.543,509.988l-2.111-10.02722a2.50692,2.50692,0,0,0-1.55811-1.81784,2.42467,2.42467,0,0,0-.888-.1675H443.20758a2.42455,2.42455,0,0,0-.888.1675,2.5067,2.5067,0,0,0-1.5581,1.81784l-2.111,10.02722A2.50046,2.50046,0,0,0,439.16149,512.0739Z" transform="translate(-183.38894 -133.44496)" fill="#2f2e41"/><rect x="569.83152" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(960.46258 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="561.45453" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(943.70862 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="553.07755" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(926.95465 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="544.70057" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(910.20069 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="536.32359" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(893.44673 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="527.94661" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(876.69276 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="519.56962" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(859.9388 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="511.19264" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(843.18483 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="502.81566" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(826.43087 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="494.43868" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(809.67691 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="486.0617" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(792.92294 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="477.68471" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(776.16898 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="469.30773" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(759.41502 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="460.93075" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(742.66105 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="452.55377" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(725.90709 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="444.17679" y="499.78134" width="4.18849" height="2.51309" rx="0.48819" transform="translate(709.15312 868.63082) rotate(-180)" fill="#3f3d56"/><rect x="569.9305" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(960.66055 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="561.55352" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(943.90659 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="553.17654" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(927.15262 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="544.79956" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(910.39866 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="536.42257" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(893.6447 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="528.04559" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(876.89073 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="519.66861" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(860.13677 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="511.29163" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(843.38281 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="502.91465" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(826.62884 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="494.53766" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(809.87488 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="486.16068" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(793.12091 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="477.7837" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(776.36695 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="469.40672" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(759.61299 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="461.02974" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(742.85902 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="452.65276" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(726.10506 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="444.27577" y="503.96984" width="4.18849" height="2.51309" rx="0.48819" transform="translate(709.3511 877.00781) rotate(-180)" fill="#3f3d56"/><rect x="500.40155" y="508.99602" width="33.50793" height="2.51309" rx="0.48819" transform="translate(850.92209 887.06018) rotate(-180)" fill="#3f3d56"/></svg><div class="lh-1 p-2 fs-4">
+          <h1 class="h6 mb-0 lh-1">Suppliers</h1>
+          <small>All the suppliers</small>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex">
+          <span class="w-100 text-end">
+          <button type="button" class="btn px-4 bg-create text-white shadow"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSuppliersCreate" aria-controls="offcanvasRight"
+          >
+            <svg class="" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </svg>
+            </button>
+        </span>
+      </div>
+      
+
+      <form class="row g-3 py-4">
+        
+        <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+          <label for="inputSuppliersCIFilter" class="form-label">CI</label>
+          <input type="text" class="form-control" id="inputSuppliersCIFilter" placeholder="Suppliers CI">
+        </div>
+        <div class="col-6  col-sm-4 col-md-4 col-lg-3">
+            <label for="inputSuppliersEmailFilter" class="form-label">Email</label>
+            <input type="text" class="form-control" id="inputSuppliersEmailFilter" placeholder="Suppliers email">
+          </div>
+          <div class="col-6  col-sm-4 col-md-4 col-lg-3">
+            <label for="inputSuppliersNameFilter" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputSuppliersNameFilter" placeholder="Suppliers name">
+          </div>
+        <div class="col-6  col-sm-4 col-md-4 col-lg-2">
+          <label for="inputCountryFilter" class="form-label">Country</label>
+          <select id="inputCountryFilter" class="form-select" aria-label="Default select example">
+            <option selected>Select country</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-6  col-sm-4 col-md-4 col-lg-2">
+          <label for="inputCityFilter" class="form-label">City</label>
+          <select id="inputCityFilter" class="form-select" aria-label="Default select example">
+            <option selected>Select city</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-12">
+            <small class="d-block text-end mt-3">
+                <button type="submit" class="btn btn-primary border-0 shadow border px-5">Filter</button>
+            </small>
+        </div>
+      </form>
+
+      <div class="table-responsive table-bordered">
+        <caption>Suppliers shown 3 of 100 </caption>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">CI</th>
+              <th scope="col">First name</th>
+              <th  scope="col">Email</th>
+              
+              <th scope="col">Country</th>
+              <th scope="col">City</th>
+              
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td class="border small">99020212167</td>
+              <td class="border small table-min">Miguel Angel</td>
+              <td class="border small table-min">suppliers1999@gmail.com</td>
+              
+              <td class="border small ">Cuba</td>
+              <td class="border small">Cienfuegos</td>
+             
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a class="bi bi-eye-fill cursor-pointer color-view" href="supplier_detail.html"></a>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSuppliersUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalSuppliersDelete"></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <td class="border small">99020212167</td>
+              <td class="border small table-min">Miguel Angel</td>
+              <td class="border small table-min">suppliers1999@gmail.com</td>
+              
+              <td class="border small ">Cuba</td>
+              <td class="border small">Cienfuegos</td>
+             
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a class="bi bi-eye-fill cursor-pointer color-view" href="supplier_detail.html"></a>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSuppliersUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalSuppliersDelete"></i>
+                </div>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <td class="border small">99020212167</td>
+              <td class="border small table-min">Miguel Angel</td>
+              <td class="border small table-min">suppliers1999@gmail.com</td>
+              
+              <td class="border small ">Cuba</td>
+              <td class="border small">Cienfuegos</td>
+             
+              <td class="table-width-80">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a class="bi bi-eye-fill cursor-pointer color-view" href="supplier_detail.html"></a>
+                  <i class="bi bi-pencil-fill cursor-pointer text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightSuppliersUpdate" aria-controls="offcanvasRight"></i>
+                  <i class="bi bi-trash-fill cursor-pointer color-delete" data-bs-toggle="modal" data-bs-target="#modalSuppliersDelete"></i>
+                </div>
+              </td>
+            </tr>
+            
+            
+          </tbody>
+        </table>
+        
+      </div>
+      <nav class="mt-2" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center justify-content-sm-end justify-content-md-end">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-whatsapp  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter  fs-3"></i></a></li>
+            <li class="mx-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram  fs-3"></i></a></li>
+          </ul>
+        
+        <p class="text-center text-body-secondary">© 2024 MangelRyujin, Developer</p>
+      </footer>
+      
+
+    </main>
+  </div>
+</div>
+<script>
+  const exampleEl = document.getElementById('example')
+  const popover = new bootstrap.Popover(exampleEl, options)
+</script>
+<script src="./assets/dist/js/popper.min.js"></script>
+<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/toast.js"></script>
+</body>
+</html>
