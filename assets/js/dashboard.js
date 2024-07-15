@@ -7,7 +7,7 @@ const myChartBar = document.getElementById('myChartBar');
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
               label: '# of Votes',
-              data: [120,100,150,130, 49, 23, 45, 22, 43],
+              data: [120,100,150,130, 49, 123],
               borderWidth: 1
             }]
           },
@@ -26,10 +26,10 @@ const myChartBar = document.getElementById('myChartBar');
         new Chart(myChartLine, {
           type: 'line',
           data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Red', 'Blue', 'Yellow', 'Green','Purple', 'Orange'],
             datasets: [{
               label: '# of Votes',
-              data: [120,100,150,130, 49, 23, 45, 22, 43,111],
+              data: [120,100,150,130, 49, 123],
               borderWidth: 1
             }]
           },
