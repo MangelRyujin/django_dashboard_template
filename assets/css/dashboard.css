@@ -154,3 +154,32 @@
 .table-width-100{
   width: 100px !important ;
 }
+
+
+.card-section{
+  transform: scale(1);
+  transition: all .4s;
+  
+}
+
+.card-section:hover{
+  transform: scale(.98);
+
+}
+
+.card-operations{
+  transform: scale(1);
+  transition: all .4s;
+}
+
+.card-operations:hover{
+  transform: scale(.99);
+  transition: all .4s;
+}
+
+
+/* .bg-body-tertiary:hover {
+  --bs-bg-opacity: 1;
+  color: #212529;
+  background-color: rgba(248,249,250) !important;
+} */
