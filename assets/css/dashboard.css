@@ -158,23 +158,22 @@
 
 .card-section{
   transform: scale(1);
-  transition: all .4s;
+  transition: all .3s;
   
 }
 
 .card-section:hover{
-  transform: scale(.98);
+  transform: scale(.99);
 
 }
 
 .card-operations{
   transform: scale(1);
-  transition: all .4s;
+  transition: all .3s;
 }
 
 .card-operations:hover{
   transform: scale(.99);
-  transition: all .4s;
 }
 
 
