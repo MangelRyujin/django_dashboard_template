@@ -175,10 +175,3 @@
 .card-operations:hover{
   transform: scale(.99);
 }
-
-
-/* .bg-body-tertiary:hover {
-  --bs-bg-opacity: 1;
-  color: #212529;
-  background-color: rgba(248,249,250) !important;
-} */
